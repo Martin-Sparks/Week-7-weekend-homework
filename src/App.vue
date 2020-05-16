@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <h1>Hello World!</h1>
+  <get-charactor :charactorName="rickAndMorty"></get-charactor>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import {EventBus} from "@/main.js"
+import GetCharactor from './components/GetCharactor.vue';
 
 export default {
-  name: 'App',
+  name:"app",
+  data(){
+      return {
+        rickAndMorty: {},
+        results: {}
+      }
+  },
+
+  methods: {
+      getCharacter: function(){
+          // this.rickAndMorty.results(element => {
+          //     console.log(element.name);
+
+          // });
+          
+      }
+  },
+
+  mounted(){
+    fetch("https://rickandmortyapi.com/api/character/")
+    .then(res => res.json())
+    .then(rickAndMorty => {this.rickAndMorty = rickAndMorty})
+    .then(this.getCharacter())
+
+  },
+
   components: {
-    HelloWorld
+    "get-charactor": GetCharactor
+
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
