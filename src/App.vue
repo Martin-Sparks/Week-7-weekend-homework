@@ -45,9 +45,9 @@ export default {
       eventBus.$on('episode-select', (index) =>{
     
         this.selelctedEpisodeInfo = []
-      this.rickAndMorty.results.forEach(charactor => {
+        this.rickAndMorty.results.forEach(charactor => {
          if (charactor.episode.includes("https://rickandmortyapi.com/api/episode/" + (index +1)))
-            this.selelctedEpisodeInfo.push({name: charactor.name, image:charactor.image})
+        this.selelctedEpisodeInfo.push({name: charactor.name, image:charactor.image})
             
       });
                 
