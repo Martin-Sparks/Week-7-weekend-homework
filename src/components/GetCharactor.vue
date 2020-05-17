@@ -29,7 +29,6 @@ export default {
     methods:{
         onNameSelect: function(){
             eventBus.$emit('name-selected', this.selectedIndex)
-            this.selectedIndex = "";
             
         }
     }

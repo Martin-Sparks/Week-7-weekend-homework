@@ -13,6 +13,7 @@
             <li> Origin {{ charactorDetails.origin.name}}</li>
             <br>
             <img :src="charactorDetails.image" alt="image">
+            <p>Episodes appeared in: {{ charactorDetails.episode.length}}</p>
     </ul>
  </div>
   
