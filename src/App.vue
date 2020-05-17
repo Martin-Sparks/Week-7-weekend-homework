@@ -1,11 +1,18 @@
 <template>
-<div>
-  <h1>Pickle Rick.com</h1>
-  <get-charactor :charactorList="rickAndMorty.results"></get-charactor>
-  <charactor-info :charactorDetails="selectedCharactor"></charactor-info>
-  <episode :episode="rickAndMorty.results"> </episode>
-  <episode-info :episodeinfo="selelctedEpisodeInfo"> </episode-info>
+<div id="main">
+  <h1 class="text-center">Pickle Rick.com</h1>
+  <div class="row">
+    <div class="col-5 offset-1">
+      <get-charactor :charactorList="rickAndMorty.results"></get-charactor>
+      <charactor-info :charactorDetails="selectedCharactor"></charactor-info>
+     </div>
+    <div class="col-5 offset-1">
+      <episode :episode="rickAndMorty.results"> </episode>
+      <episode-info :episodeinfo="selelctedEpisodeInfo"> </episode-info>
+    </div>
+  </div>
 
+  
 
   </div>
 </template>
@@ -17,6 +24,8 @@ import GetCharactor from './components/GetCharactor.vue';
 import CharactorInfo from './components/CharactorInfo.vue';
 import Episode from './components/Episode.vue';
 import EpisodeInfo from './components/EpisodeInfo.vue';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name:"app",
@@ -64,5 +73,16 @@ export default {
 </script>
 
 <style>
+
+   #main {
+     min-height: 100vh;
+      background-image: url("../public/thumb-1920-876590.jpg");
+      background-size: cover;
+      color: white;
+  }
+
+  .text-center {
+    color: green;
+  }
 
 </style>
