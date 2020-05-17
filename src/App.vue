@@ -1,21 +1,24 @@
 <template>
 <div>
-  <h1>Hello World!</h1>
-  <get-charactor :charactorName="rickAndMorty"></get-charactor>
+  <h1>Pickle Rick.com</h1>
+  <get-charactor :charactorList="rickAndMorty.results"></get-charactor>
+  <charactor-info :charactorDetails="selectedCharactor"></charactor-info>
   </div>
 </template>
 
 <script>
 
-import {EventBus} from "@/main.js"
+import {eventBus} from "@/main.js"
 import GetCharactor from './components/GetCharactor.vue';
+import CharactorInfo from './components/CharactorInfo.vue';
 
 export default {
   name:"app",
   data(){
       return {
         rickAndMorty: {},
-        results: {}
+        results: {},
+        selectedCharactor: null
       }
   },
 
@@ -33,13 +36,20 @@ export default {
     fetch("https://rickandmortyapi.com/api/character/")
     .then(res => res.json())
     .then(rickAndMorty => {this.rickAndMorty = rickAndMorty})
-    .then(this.getCharacter())
+    .then(this.getCharacter());
 
+    eventBus.$on('name-selected', (index) =>{
+      this.selectedCharactor = this.rickAndMorty.results[index];
+      // console.log(index);
+      console.log(this.rickAndMorty.results[index]);
+      
+      
+    })
   },
 
   components: {
-    "get-charactor": GetCharactor
-
+    "get-charactor": GetCharactor,
+    "charactor-info": CharactorInfo
   }
 }
 </script>

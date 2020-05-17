@@ -1,16 +1,16 @@
 <template>
-  <div>
-
-      <select id="select-charactor" >
-        <option value="charactor.name" v-for="charactor in charactorName.results" :key="charactor.name">
+  <div d="select-charactor">
+      <select v-on:change="onNameSelect" v-model.number="selectedIndex">
+    <option value="" disabled>Select a charactor...</option>
+        <option v-for="(charactor, index) in charactorList" :key="index" :value="index">
           {{charactor.name}}
         </option>
      </select>
-      <ul>
+      <!-- <ul>
           <li v-for="charactor in charactorName.results" :key="charactor.name"> 
                 {{charactor.name}}
           </li>
-      </ul>
+      </ul> -->
   </div>
 </template>
 
@@ -18,8 +18,21 @@
 import {eventBus} from "@/main.js"
 export default {
     name: "get-charactor",
-    props: ["charactorName"]
+    props: ["charactorList"],
 
+    data: function() {
+        return{
+            selectedIndex: ""
+        }
+    },
+    
+    methods:{
+        onNameSelect: function(){
+            eventBus.$emit('name-selected', this.selectedIndex)
+            this.selectedIndex = "";
+            
+        }
+    }
 }
 </script>
 
