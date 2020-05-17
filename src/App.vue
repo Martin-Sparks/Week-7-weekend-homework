@@ -12,8 +12,6 @@
     </div>
   </div>
 
-  
-
   </div>
 </template>
 
@@ -78,7 +76,7 @@ export default {
      min-height: 100vh;
       background-image: url("../public/thumb-1920-876590.jpg");
       background-size: cover;
-      color: white;
+      color: green;
   }
 
   .text-center {

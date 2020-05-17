@@ -1,7 +1,7 @@
 <template>
   <div d="select-charactor">
       <select v-on:change="onNameSelect" v-model.number="selectedIndex">
-    <option value="" disabled>Select a charactor...</option>
+    <option value="" disabled>Select a character...</option>
         <option v-for="(charactor, index) in charactorList" :key="index" :value="index">
           {{charactor.name}}
         </option>
