@@ -1,6 +1,6 @@
 <template>
 <div id="main">
-  <h1 class="text-center">Pickle Rick.com</h1>
+  <h1 class="text-center">Pickle_Rick.com</h1>
   <div class="row">
     <div class="col-5 offset-1">
       <get-charactor :charactorList="rickAndMorty.results"></get-charactor>
